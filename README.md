@@ -4,7 +4,7 @@ This team profile generator uses node.js and the Inquirer package so that a user
 ## User story 
 As a manager, I want a quick and efficient way to create a HTML document that displays key information for employees on my team. 
 
-## Usage 
+## Usage
 To run this application, type 'node index.js' in the command line to run a number of prompts that will ask for information about you, as a manager, and your team. 
 
 ## Packages 
