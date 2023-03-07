@@ -12,5 +12,8 @@ For this project I used the npm inquirer package, a collection of common interac
 
 https://www.npmjs.com/package/inquirer
 
+## Tests 
+I have used Jest to test the initial starter code. All tests in the test.js files have been fixed. 
+
 ## Project status
-At time of writing (7 March 2023) this project is unfinished. I will continue to work on this to complete. 
+At time of writing (7 March 2023) this project is unfinished.
