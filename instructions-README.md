@@ -12,7 +12,7 @@ As a manager a user want to generate a webpage that displays my team's basic inf
 
 * Create a command-line application that accepts accepts user input using the provided starter code.   
   * Create classes for each team member provided and export them. The tests for these classes (in the `_tests_` directory) must ALL pass.     
-    * The first class is an `Employee` parent class with the following properties and methods:       
+    * The first class is an `Employee` parent class with the following properties and methods:   ✅     
       * `name`
       * `id`
       * `email`
@@ -20,15 +20,15 @@ As a manager a user want to generate a webpage that displays my team's basic inf
       * `getId()`
       * `getEmail()`
       * `getRole()`&mdash;returns `'Employee'`     
-    * The other three classes will extend `Employee`.      
-    * In addition to `Employee`'s properties and methods, `Manager` will also have the following:
+    * The other three classes will extend `Employee`.   ✅    
+    * In addition to `Employee`'s properties and methods, `Manager` will also have the following: ✅ 
       * `officeNumber`
       * `getRole()`&mdash;overridden to return `'Manager'`
-    * In addition to `Employee`'s properties and methods, `Engineer` will also have the following:
+    * In addition to `Employee`'s properties and methods, `Engineer` will also have the following: ✅ 
       * `github`&mdash;GitHub username
       * `getGithub()`
       * `getRole()`&mdash;overridden to return `'Engineer'`
-    * In addition to `Employee`'s properties and methods, `Intern` will also have the following:
+    * In addition to `Employee`'s properties and methods, `Intern` will also have the following: ✅ 
       * `school`
       * `getSchool()`
       * `getRole()`&mdash;overridden to return `'Intern'`
