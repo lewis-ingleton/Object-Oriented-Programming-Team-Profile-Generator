@@ -43,48 +43,46 @@ const managerInput = () => {
         ]).then(({ name, id, email, number }) => {
             const manager = new Manager(name, id, email, number);
             newStaffArr.push(manager)
-            console.log(newStaffArr)
             addTeamMembers()
         })
-    }
+}
 
 managerInput()
 
 const createEngineer = () => {
     inquirer
         .prompt([
-        {
-            type: 'input',
-            message: 'Enter engineers name',
-            name: 'engineerName',
-        },
-        {
-            type: 'input',
-            message: 'Enter engineers ID',
-            name: 'engineerID',
-        },
-        {
-            type: 'input',
-            message: 'Enter engineers email',
-            name: 'engineerEmail',
-        },
-        {
-            type: 'input',
-            message: 'Enter engineers GitHub username',
-            name: 'engineerGithub',
-        },
+            {
+                type: 'input',
+                message: 'Enter engineers name',
+                name: 'engineerName',
+            },
+            {
+                type: 'input',
+                message: 'Enter engineers ID',
+                name: 'engineerID',
+            },
+            {
+                type: 'input',
+                message: 'Enter engineers email',
+                name: 'engineerEmail',
+            },
+            {
+                type: 'input',
+                message: 'Enter engineers GitHub username',
+                name: 'engineerGithub',
+            },
         ]).then(({ engineerName, engineerID, engineerEmail, engineerGithub }) => {
-            const engineer = new Engineer (engineerName, engineerID, engineerEmail, engineerGithub);
+            const engineer = new Engineer(engineerName, engineerID, engineerEmail, engineerGithub);
             newStaffArr.push(engineer)
-            console.log(newStaffArr)
             addTeamMembers()
         })
 
-    }
-    
-    const createIntern = () => {
-        inquirer
-            .prompt([
+}
+
+const createIntern = () => {
+    inquirer
+        .prompt([
             {
                 type: 'input',
                 message: 'Enter interns name',
@@ -105,41 +103,40 @@ const createEngineer = () => {
                 message: 'Enter interns school',
                 name: 'internSchool',
             },
-            ]).then(({ internName, internID, internEmail, internSchool }) => {
-                const intern = new Intern (internName, internID, internEmail, internSchool);
-                newStaffArr.push(intern)
-                console.log(newStaffArr)
-                addTeamMembers()
-            })
-    
-        }
+        ]).then(({ internName, internID, internEmail, internSchool }) => {
+            const intern = new Intern(internName, internID, internEmail, internSchool);
+            newStaffArr.push(intern)
+            addTeamMembers()
+        })
+
+}
 
 addTeamMembers = () => {
     inquirer
-    .prompt(
-        {
-            type: 'list',
-            message: 'Would you like to add new members to the team?',
-            name: 'addTeam',
-            choices: ['Engineer', 'Intern', 'Finish building the team']
-        },
-    ).then((answers) => {
-        switch (answers.addTeam) {
-            case 'Engineer': {
-                createEngineer();
-                break;
-            }
-            case 'Intern': {
-                createIntern();
-                break;
-            }
-            default: generateHTML();
-            break;
-        };
+        .prompt(
+            {
+                type: 'list',
+                message: 'Would you like to add new members to the team?',
+                name: 'addTeam',
+                choices: ['Engineer', 'Intern', 'Finish building the team']
+            },
+        ).then((answers) => {
+            switch (answers.addTeam) {
+                case 'Engineer': {
+                    createEngineer();
+                    break;
+                }
+                case 'Intern': {
+                    createIntern();
+                    break;
+                }
+                default: generateHTML();
+                    break;
+            };
 
-    });
+        });
 };
-        
+
 let generateHTML = () => {
     fs.writeFileSync(outputPath, generateTeam(newStaffArr), 'utf-8')
 }
