@@ -17,27 +17,48 @@ const newStaffArr = [];
 
 // Team manager (user) prompts 
 
+
+const managerConfirm = () => {
+    inquirer 
+        .prompt([
+            {
+                type: 'confirm',
+                message: 'Are you a manager?',
+                name: 'managerConfirm',
+            },
+        ]).then((response) => {
+            if (response.managerConfirm === false) {
+                console.log('You must be a manager to use this terminal.')
+            }  else {
+                managerInput()
+            }
+        })
+            
+            
+}
+managerConfirm()
+
 const managerInput = () => {
     inquirer
         .prompt([
             {
                 type: 'input',
-                message: 'Enter managers name',
+                message: 'Enter your name',
                 name: 'name',
             },
             {
                 type: 'input',
-                message: 'Enter managers ID',
+                message: 'Enter your manager ID',
                 name: 'id',
             },
             {
                 type: 'input',
-                message: 'Enter managers email',
+                message: 'Enter your manager email',
                 name: 'email',
             },
             {
                 type: 'input',
-                message: 'Enter managers office number',
+                message: 'Enter your office number',
                 name: 'number',
             },
         ]).then(({ name, id, email, number }) => {
@@ -47,7 +68,9 @@ const managerInput = () => {
         })
 }
 
-managerInput()
+
+
+
 
 const createEngineer = () => {
     inquirer
@@ -137,6 +160,6 @@ addTeamMembers = () => {
         });
 };
 
-let generateHTML = () => {
+const generateHTML = () => {
     fs.writeFileSync(outputPath, generateTeam(newStaffArr), 'utf-8')
 }
