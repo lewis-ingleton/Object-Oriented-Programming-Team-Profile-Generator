@@ -7,7 +7,8 @@ const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
 
-const generateTeam = require("./src/page-template")
+const generateTeam = require("./src/page-template");
+const { resolveNaptr } = require("dns");
 
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
@@ -144,21 +145,17 @@ addTeamMembers = () => {
                 choices: ['Engineer', 'Intern', 'Finish building the team']
             },
         ).then((answers) => {
-            switch (answers.addTeam) {
-                case 'Engineer': {
+            if (answers.addTeam === 'Engineer') {
                     createEngineer();
-                    break;
-                }
-                case 'Intern': {
+                } else if (answers.addTeam === 'Intern') {
                     createIntern();
-                    break;
+                } else {
+                    generateHTML()
                 }
-                default: generateHTML();
-                    break;
-            };
+            })
 
-        });
-};
+}
+    
 
 const generateHTML = () => {
     fs.writeFileSync(outputPath, generateTeam(newStaffArr), 'utf-8')
