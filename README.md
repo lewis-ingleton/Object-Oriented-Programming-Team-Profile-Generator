@@ -16,4 +16,6 @@ For this project I used the npm inquirer package, a collection of common interac
 https://www.npmjs.com/package/inquirer
 
 ## Tests 
-I have used Jest to test the initial starter code. All tests in the test.js files have been fixed. 
+I have used Jest to test the initial starter code. All tests in the test.js files have been fixed. Screenshot of test below.
+
+![Screenshot of test, using Jest](https://github.com/lewis-ingleton/Object-Oriented-Programming-Team-Profile-Generator/blob/main/Test-screenshot/test-screenshot.png?raw=true)
